@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+void swapAddresses(int** a, int** b,int** c) {
+    int* temp = *c;
+    *c = *b;
+    *b = *a;
+    *a = *c;
+    *a = temp;
+}
+
+int main() {
+    int A = 40;
+    int B = 50;
+    int C = 60;
+
+    int* ptrA = &A;
+    int* ptrB = &B;
+    int* ptrC = &C;
+
+    printf("Alamat awal variabel A: %x\n", ptrA);
+    printf("Alamat awal variabel B: %x\n", ptrB);
+    printf("Alamat awal variabel C: %x\n", ptrC);
+
+    swapAddresses(&ptrA, &ptrB, &ptrC);
+    
+    printf("\nAlamat setelah pertukaran:\n");
+    printf("\nAlamat variabel A: %x\n", ptrA);
+    printf("Alamat variabel B: %x\n", ptrB);
+    printf("Alamat variabel C: %x\n", ptrC);
+
+    return 0;
+}
